@@ -98,6 +98,7 @@ export class DepartmentsService {
           .execute();
       }
       await queryRunner.commitTransaction();
+      return '업데이트 되었습니다!';
     } catch (err) {
       await queryRunner.rollbackTransaction();
     } finally {

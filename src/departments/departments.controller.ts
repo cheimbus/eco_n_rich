@@ -8,7 +8,6 @@ import {
 } from '@nestjs/common';
 import { DepartmentsService } from './departments.service';
 import { UpdateSalaryDto } from './dto/employee.dto';
-import { WarterworksDto } from './dto/warterworks.dto';
 
 @Controller()
 export class DepartmentsController {
@@ -40,11 +39,11 @@ export class DepartmentsController {
 
   // RDBMS 스키마와 별개로 공공 데이터 포털( www.data.go.or ) 등에서 임의의 API 선택 후
   // numOfRows와 pageNo는 4를 초과하면 안된다. numOfRows는 페이지당 갯수불러오며, pageNo는 페이지 수 이다.
-  @Get('busan/waterworks/situation')
-  async waterworksSituation(@Body() data: WarterworksDto) {
-    return this.departmentsService.waterworksSituation(
-      data.numOfRows,
-      data.pageNo,
-    );
+  @Get('busan/waterworks/situation/:numOfRows/:pageNo')
+  async waterworksSituation(
+    @Param('numOfRows', ParseIntPipe) numOfRows: number,
+    @Param('pageNo', ParseIntPipe) pageNo: number,
+  ) {
+    return this.departmentsService.waterworksSituation(numOfRows, pageNo);
   }
 }
