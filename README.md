@@ -28,7 +28,7 @@ ex) POST / http://ec2-3-38-168-229.ap-northeast-2.compute.amazonaws.com:3000/dep
 
 - RDBMS 스키마와 별개로 공공 데이터 포털( www.data.go.or ) 등에서 임의의 API 선택 후 조회 가능하도록 커스터마이징된 API 구현
   - 공공API인 부산광역시 상수도 단수현황을 가져와 각 페이지별로 몇 개씩 가져오는 API를 구현하였다.
-  - 파라디터 2개를 요구하는데, 앞은 페이지 결과 수, 뒤는 페이지 번호이다.
+  - 파라미터는 2개를 요구하는데, 각각 페이지 결과 수, 페이지 번호를 의미한다.
   - 요구사항이 있는데, 각 페이지는 4페이지를 넘길 수 없으며 페이지 결과 또한 4개를 넘길 수 없다.   
 ex) GET / http://ec2-3-38-168-229.ap-northeast-2.compute.amazonaws.com:3000/busan/waterworks/situation/4/3
 
